@@ -1,4 +1,4 @@
-from src.fontparser.fontparser import FontParser
+from ..fontparser.fontparser import FontParser
 
 
 class TSFontConverter:

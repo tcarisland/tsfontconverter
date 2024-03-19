@@ -1,7 +1,7 @@
 # src/fontlist/font_reader.py
 from fontTools.ttLib import TTFont
-from src.fontmodel.FontInfo import FontInfo
-from src.fontmodel.FontMetadata import FontMetadata
+from ..fontmodel.FontInfo import FontInfo
+from ..fontmodel.FontMetadata import FontMetadata
 import os
 import json
 import re

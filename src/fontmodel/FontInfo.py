@@ -1,4 +1,4 @@
-from src.fontmodel.FontMetadata import FontMetadata
+from .FontMetadata import FontMetadata
 
 class FontInfo:
     def __init__(self):
