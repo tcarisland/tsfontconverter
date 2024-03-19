@@ -10,6 +10,8 @@ setup(
     ],
     author='Thor Arisland',
     description='A Python package for converting fonts',
+    long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
     url='https://github.com/tcarisland/tsfontconverter',
     license='Apache License 2.0',
     classifiers=[
