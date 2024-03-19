@@ -3,8 +3,8 @@ from setuptools import setup, find_packages
 setup(
     name='tsfontconverter',
     version='0.1',
-    packages=find_packages('Lib'),
-    package_dir={'': 'Lib'},
+    packages=find_packages('tsfontconverter'),
+    package_dir={'': 'tsfontconverter'},
     install_requires=[
         # Add your dependencies here
     ],
