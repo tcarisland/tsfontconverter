@@ -2,11 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name='tsfontconverter',
-    version='0.3',
+    version='0.4',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     install_requires=[
-        # Add your dependencies here
+        "fonttools",
+        "pytest",
+        "python - dotenv"
     ],
     author='Thor Arisland',
     description='A Python package for converting fonts',
