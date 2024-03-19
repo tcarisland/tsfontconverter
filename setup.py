@@ -8,7 +8,7 @@ setup(
     install_requires=[
         "fonttools",
         "pytest",
-        "python - dotenv"
+        "python-dotenv"
     ],
     author='Thor Arisland',
     description='A Python package for converting fonts',
