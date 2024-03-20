@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "tsfontconverter"
-version = "0.15"
+version = "0.16"
 authors = [
     { name = "Thor Christopher Arisland", email = "thor.arisland@gmail.com" }
 ]
