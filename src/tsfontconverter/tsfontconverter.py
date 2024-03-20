@@ -1,4 +1,4 @@
-from .fontparser.fontparser import FontParser
+from ..fontparser.fontparser import FontParser
 
 class TSFontConverter:
     def __init__(self):

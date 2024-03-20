@@ -1,0 +1,23 @@
+[project]
+name = "tsfontconverter_TCARISLAND"
+version = "0.8"
+authors = [
+  { name="Thor Christopher Arisland", email="thor.arisland@gmail.com.com" },
+]
+description = "Converts fonts to TypeScript objects"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/tcarisland/tcfontconverter"
+Issues = "https://github.com/tcarisland/tcfontconverter/issues"
+
+[tool.flit.metadata.dependencies]
+fonttools = "*"
+pytest = "*"
+python-dotenv = "*"
