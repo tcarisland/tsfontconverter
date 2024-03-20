@@ -1,4 +1,4 @@
-from src.tsfontconverter.tsfontconverter import TSFontConverter
+from src.tsfontconverter import TSFontConverter
 from dotenv import load_dotenv
 import os
 

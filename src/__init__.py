@@ -1,1 +1,1 @@
-from .tsfontconverter.tsfontconverter import TSFontConverter
+from tsfontconverter import TSFontConverter
