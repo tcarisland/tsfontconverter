@@ -1,4 +1,4 @@
-from src.tsfontconverter import create_font_list
+from src.tsfontconverter.tsfontconverter import create_font_list
 from dotenv import load_dotenv
 import os
 

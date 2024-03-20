@@ -1,1 +1,0 @@
-from tsfontconverter import TSFontConverter
