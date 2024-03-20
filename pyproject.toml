@@ -1,4 +1,4 @@
-[project]
+[tool.flit.metadata]
 name = "tsfontconverter_TCARISLAND"
 version = "0.8"
 authors = [
@@ -13,11 +13,11 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
-[project.urls]
-Homepage = "https://github.com/tcarisland/tcfontconverter"
-Issues = "https://github.com/tcarisland/tcfontconverter/issues"
-
 [tool.flit.metadata.dependencies]
 fonttools = "*"
 pytest = "*"
 python-dotenv = "*"
+
+[tool.flit.metadata.urls]
+Homepage = "https://github.com/tcarisland/tcfontconverter"
+Issues = "https://github.com/tcarisland/tcfontconverter/issues"
