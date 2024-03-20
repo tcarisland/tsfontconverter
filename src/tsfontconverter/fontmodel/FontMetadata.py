@@ -1,3 +1,4 @@
+
 class FontMetadata:
     def __init__(self):
         self._description = None
@@ -7,11 +8,11 @@ class FontMetadata:
         self._sample_text = None
 
     @property
-    def description(self):
+    def description(self) -> str:
         return self._description
 
     @description.setter
-    def description(self, value):
+    def description(self, value: str):
         self._description = value
 
     @property
