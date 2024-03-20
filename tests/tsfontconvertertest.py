@@ -1,4 +1,4 @@
-from src.tsfontconverter.tsfontconverter import TSFontConverter
+from src.tsfontconverter import create_font_list
 from dotenv import load_dotenv
 import os
 
@@ -8,7 +8,6 @@ FONTDIRPATH = os.getenv("FONTDIRPATH")
 OUTPUTPATH = os.getenv("OUTPUTPATH")
 
 def test_tsfontconverter():
-    tsfc = TSFontConverter()
-    tsfc.create_font_list(fontdirpath=FONTDIRPATH,
-                          outputpath=OUTPUTPATH)
+    create_font_list(fontdirpath=FONTDIRPATH,
+                     outputpath=OUTPUTPATH)
 

@@ -1,5 +1,4 @@
-from .fontparser.fontparser import FontParser
-
+from src.fontparser.fontparser import FontParser
 
 def convert_font(font):
     # Add your font conversion logic here
