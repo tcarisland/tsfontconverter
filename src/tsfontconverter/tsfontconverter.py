@@ -1,5 +1,6 @@
 from ..fontparser.fontparser import FontParser
 
+
 class TSFontConverter:
     def __init__(self):
         print("TSFontConverter initialized")
@@ -11,5 +12,3 @@ class TSFontConverter:
     def create_font_list(self, fontdirpath, outputpath):
         fontparser = FontParser(fontdirpath=fontdirpath, outputpath=outputpath)
         fontparser.list_font_files()
-
-
