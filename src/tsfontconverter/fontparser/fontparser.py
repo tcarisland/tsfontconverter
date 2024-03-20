@@ -1,9 +1,13 @@
 from fontTools.ttLib import TTFont
-from ..fontmodel.FontInfo import FontInfo
-from ..fontmodel.FontMetadata import FontMetadata
+
+from ..fontmodel.CharacterMap import CharacterMap
+from ..fontmodel.Font import Font
 import os
 import json
 import re
+
+from ..fontmodel.Glyph import Glyph
+from ..fontmodel.Meta import Meta
 
 
 class FontParser:
@@ -54,19 +58,23 @@ class FontParser:
         return list(filter(lambda item: item is not None, glyph_list))
 
     def create_font_info(self, glyphs_unicode, fontname, font_metadata):
-        font_info = FontInfo()
-        font_info.name = fontname
-        font_info.meta = font_metadata
+        font = Font()
+        font.name = fontname
+        font.meta = font_metadata
+        font.characterMap = CharacterMap()
+        characterMap = {}
         for glyph, unicode_code in glyphs_unicode:
-            try:
-                font_info.add_glyph(glyph, unicode_code)
-            except:
-                print("could not add " + str(glyph))
-        return font_info
+            characterMap[glyph] = unicode_code
+        for glyphId in characterMap:
+            glyph = Glyph()
+            glyph.glyphId = glyphId
+            glyph.unicode = characterMap[glyphId]
+            font.characterMap.glyphs.append(glyph)
+        return font
 
     def extract_metadata(self, font):
-        font_metadata = FontMetadata()
         naming_table = font['name']
+        font_metadata = Meta()
         for record in naming_table.names:
             if record.nameID == 2:  # Description
                 font_metadata.description = record.toUnicode()
@@ -78,7 +86,6 @@ class FontParser:
                 font_metadata.manufacturer_url = record.toUnicode()
             elif record.nameID == 10:  # Sample text
                 font_metadata.sample_text = record.toUnicode()
-
         return font_metadata
 
     def list_font_files(self):
@@ -94,6 +101,4 @@ class FontParser:
         font_info_dicts = [font_info.to_dict() for font_info in fontinfolist]
         with open(self._outputpath, "w") as json_file:
             json_data = json.dumps(font_info_dicts, indent=1)
-            json_data_single_line_glyphs = re.sub(r'"characterMap":\s*{(?:.|\n)*?}',
-                                                  lambda m: m.group().replace('\n', ''), json_data, flags=re.DOTALL)
-            json_file.write(json_data_single_line_glyphs)
+            json_file.write(json_data)

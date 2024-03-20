@@ -1,7 +1,7 @@
 class Glyph:
-    def __init__(self, glyphId, unicode):
-        self.glyphId = glyphId
-        self.unicode = unicode
+    def __init__(self):
+        self.glyphId = ""
+        self.unicode = ""
 
     @property
     def glyphId(self) -> int:

@@ -1,18 +1,18 @@
 from .CharacterMap import CharacterMap
 from .Meta import Meta
 class Font:
-    def __init__(self, meta, name, characterMap, dataUri):
-        self._meta = meta
-        self._name = name
-        self._characterMap = characterMap
-        self._dataUri = dataUri
+    def __init__(self):
+        self._meta = Meta()
+        self._name = ""
+        self._characterMap = CharacterMap()
+        self._dataUri = ""
 
     @property
-    def meta(self) -> 'Meta':
+    def meta(self) -> Meta:
         return self._meta
 
     @meta.setter
-    def meta(self, value: 'Meta'):
+    def meta(self, value: Meta):
         self._meta = value
 
     @property
@@ -24,17 +24,16 @@ class Font:
         self._name = value
 
     @property
-    def characterMap(self) -> 'CharacterMap':
+    def characterMap(self) -> CharacterMap:
         return self._characterMap
 
     @characterMap.setter
-    def characterMap(self, value: 'CharacterMap'):
+    def characterMap(self, value: CharacterMap):
         self._characterMap = value
 
     @property
     def numberOfGlyphs(self) -> int:
-        numberOfGlyphs = 0 if self._characterMap is None else len(self._characterMap)
-        return numberOfGlyphs
+        return 0 if self._characterMap is None else len(self._characterMap.glyphs)
 
     @property
     def dataUri(self) -> str:
@@ -45,11 +44,11 @@ class Font:
         self._dataUri = value
 
     def to_dict(self):
-        meta = {} if self._meta is None else self.meta.to_dict()
+        meta = Meta().to_dict() if self._meta is None else self.meta.to_dict()
         name = "" if self.name is None else self.name
-        characterMap = {} if self.characterMap is None else self.characterMap
+        characterMap = CharacterMap().to_dict() if self.characterMap is None else self.characterMap.to_dict()
         dataUri = "" if self._dataUri is None else self._dataUri
-        numberOfGlyphs = 0 if self._characterMap is None else len(self._characterMap)
+        numberOfGlyphs = 0 if self._characterMap is None else len(self._characterMap.glyphs)
         return {
             "meta": meta,
             "name": name,

@@ -1,4 +1,5 @@
 from src.tsfontconverter.tsfontconverter import create_font_list
+from src.tsfontconverter.fontparser.reflectionutils import getFontDefinition
 from dotenv import load_dotenv
 import os
 
@@ -12,3 +13,5 @@ def test_tsfontconverter():
     create_font_list(fontdirpath=FONTDIRPATH,
                      outputpath=OUTPUTPATH)
 
+def test_definition():
+    print(getFontDefinition())

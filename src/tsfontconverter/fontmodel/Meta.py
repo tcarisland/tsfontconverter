@@ -1,10 +1,10 @@
 class Meta:
-    def __init__(self, designerUrl, licenseUrl, manufacturerUrl, description, sampleText):
-        self.designerUrl = designerUrl
-        self.licenseUrl = licenseUrl
-        self.manufacturerUrl = manufacturerUrl
-        self.description = description
-        self.sampleText = sampleText
+    def __init__(self):
+        self.designerUrl = ""
+        self.licenseUrl = ""
+        self.manufacturerUrl = ""
+        self.description = ""
+        self.sampleText = ""
 
     @property
     def designerUrl(self) -> str:
