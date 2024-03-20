@@ -1,5 +1,4 @@
 [tool.flit.metadata]
-name = "tsfontconverter_TCARISLAND"
 version = "0.8"
 author = "Thor Christopher Arisland <thor.arisland@gmail.com>"
 description = "Converts fonts to TypeScript objects"
