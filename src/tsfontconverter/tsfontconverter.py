@@ -1,4 +1,4 @@
-from src.fontparser.fontparser import FontParser
+from src.tsfontconverter.fontparser.fontparser import FontParser
 
 
 def main(fontdirpath, outputpath):
@@ -6,6 +6,7 @@ def main(fontdirpath, outputpath):
     print("TSFontConverter entrypoint main")
     if fontdirpath and outputpath:
         create_font_list(fontdirpath, outputpath)
+
 
 def convert_font(font):
     # Add your font conversion logic here

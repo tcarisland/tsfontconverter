@@ -1,4 +1,6 @@
-from src.fontmodel.FontMetadata import FontMetadata
+from src.tsfontconverter.fontmodel.FontMetadata import FontMetadata
+
+
 class FontInfo:
     def __init__(self):
         self._name = None
