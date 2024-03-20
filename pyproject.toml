@@ -3,7 +3,7 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "tsfontconverter_TCARISLAND"
+name = "tsfontconverter"
 version = "0.8"
 authors = [
     { name = "Thor Christopher Arisland", email = "thor.arisland@gmail.com" }
