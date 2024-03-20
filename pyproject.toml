@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "tsfontconverter"
-version = "0.16"
+version = "0.18"
 authors = [
     { name = "Thor Christopher Arisland", email = "thor.arisland@gmail.com" }
 ]
@@ -19,3 +19,8 @@ classifiers = [
 
 [project.scripts]
 tsfontconverter = "tsfontconverter:main"
+
+#[tool.hatch.build.targets.sdist]
+#include = [
+#    "/src",
+#]

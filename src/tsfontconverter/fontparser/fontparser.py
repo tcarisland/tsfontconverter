@@ -1,6 +1,6 @@
 from fontTools.ttLib import TTFont
-from src.tsfontconverter.fontmodel.FontInfo import FontInfo
-from src.tsfontconverter.fontmodel.FontMetadata import FontMetadata
+from ..fontmodel.FontInfo import FontInfo
+from ..fontmodel.FontMetadata import FontMetadata
 import os
 import json
 import re
