@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "tsfontconverter"
-version = "0.12"
+version = "0.13"
 authors = [
     { name = "Thor Christopher Arisland", email = "thor.arisland@gmail.com" }
 ]
@@ -19,3 +19,4 @@ classifiers = [
 
 [project.scripts]
 tsfontconverter = "tsfontconverter:main"
+tsfontconverter.create_font_list="tsfontconverter:create_font_list"
