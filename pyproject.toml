@@ -5,6 +5,11 @@ build-backend = "flit_core.buildapi"
 [project]
 name = "tsfontconverter"
 version = "0.20"
+dependencies = [
+    "fonttools",
+    "pytest",
+    "python-dotenv",
+]
 authors = [
     { name = "Thor Christopher Arisland", email = "thor.arisland@gmail.com" }
 ]
