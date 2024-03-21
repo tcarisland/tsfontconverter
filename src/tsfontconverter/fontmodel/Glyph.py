@@ -4,5 +4,5 @@ from py_ts_interfaces import Interface
 
 @dataclass
 class Glyph(Interface):
-    glyphId: str = ""
+    glyphId: int = -1
     unicode: str = ""

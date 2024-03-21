@@ -13,6 +13,7 @@ def test_tsfontconverter():
     create_font_list(fontdirpath=FONTDIRPATH,
                      outputpath=OUTPUTPATH)
 
+
 def test_definition():
     for typescriptInterface in getAllDefinitions():
         print("\n")

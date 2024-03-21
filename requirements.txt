@@ -2,4 +2,3 @@
 fonttools
 pytest
 python-dotenv
-py-ts-interfaces
