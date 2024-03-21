@@ -79,13 +79,13 @@ class FontParser:
             if record.nameID == 2:  # Description
                 font_metadata.description = record.toUnicode()
             elif record.nameID == 14:  # License URL
-                font_metadata.license_url = record.toUnicode()
+                font_metadata.licenseUrl = record.toUnicode()
             elif record.nameID == 12:  # Designer URL
-                font_metadata.designer_url = record.toUnicode()
+                font_metadata.designerUrl = record.toUnicode()
             elif record.nameID == 11:  # Manufacturer URL
-                font_metadata.manufacturer_url = record.toUnicode()
+                font_metadata.manufacturerUrl = record.toUnicode()
             elif record.nameID == 10:  # Sample text
-                font_metadata.sample_text = record.toUnicode()
+                font_metadata.sampleText = record.toUnicode()
         return font_metadata
 
     def list_font_files(self):
