@@ -6,10 +6,10 @@ This library:
  - Imports OpenType and TrueType fonts
  - Extracts metadata from the naming table
  - Extracts a list of glyphs and their unicode character ID
- - Encodes the font file as a base64-encoded DataURI
+ - ~~Encodes the font file as a base64-encoded DataURI~~ (will be implemented in #7)
  - Saves all this in Python objects
  - Serializes the Python Objects in a JSON file
- - Exports TypeScript definitions of the objects
+ - ~~Exports TypeScript definitions of the objects~~ (will be implemented in #9)
 
 ## But Why?
 
