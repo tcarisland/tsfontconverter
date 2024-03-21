@@ -1,5 +1,5 @@
 from src.tsfontconverter.tsfontconverter import create_font_list
-from src.tsfontconverter.fontparser.reflectionutils import getFontDefinition
+from src.tsfontconverter.fontparser.reflectionutils import getAllDefinitions
 from dotenv import load_dotenv
 import os
 
@@ -14,4 +14,6 @@ def test_tsfontconverter():
                      outputpath=OUTPUTPATH)
 
 def test_definition():
-    print(getFontDefinition())
+    for typescriptInterface in getAllDefinitions():
+        print("\n")
+        print(typescriptInterface)

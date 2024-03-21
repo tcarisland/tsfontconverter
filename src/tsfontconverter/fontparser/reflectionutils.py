@@ -1,41 +1,21 @@
+import inspect
 import json
-import re
-from types import FunctionType
 
+from ..fontmodel.CharacterMap import CharacterMap
 from ..fontmodel.Font import Font
-def getFontDefinition():
-    return reflect_class_to_json(Font)
 
-def getGlyphDeginition():
-    return ""
+from ..fontmodel.Glyph import Glyph
+from ..fontmodel.Meta import Meta
 
-def getCharacterMapDefinition():
-    return ""
 
-def getMetaDefinition():
-    return ""
+def getClassDefinition(clazz):
+    fontClassDefinition = inspect.signature(clazz.__init__)
+    fontDict = {}
+    for param_name, param in fontClassDefinition.parameters.items():
+        if param_name is not "self":
+            fontDict[param_name] = param.annotation.__name__
+    return f"export interface {clazz.__name__} {json.dumps(fontDict, indent=1)}"
 
-def getTypeNameFromPropType(value):
-    class_pattern = r"<class '((.*?\.)*)(.*?)'>"
-    plain_class_pattern = r"<class '(.*?)'>"
-    match = re.match(class_pattern, value)
-    if match:
-        return match.group(3)
-    else:
-        match = re.match(plain_class_pattern, value)
-        if match:
-            return match.group(1)
-        else:
-            return value
+def getAllDefinitions():
+    return [getClassDefinition(cls) for cls in [Glyph, CharacterMap, Meta, Font]]
 
-def reflect_class_to_json(class_def):
-    properties = {}
-    for name, attr in class_def.__dict__.items():
-        if isinstance(attr, property):
-            prop_type = attr.fget.__annotations__.get('return', 'unknown')
-            properties[name] = prop_type
-            value = getTypeNameFromPropType(str(prop_type))
-            print("{k}: {v}".format(k=name, v=value))
-    return ""
-
-print(getFontDefinition())

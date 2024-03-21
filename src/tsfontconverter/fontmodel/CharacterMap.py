@@ -1,22 +1,17 @@
+from dataclasses import dataclass, field
 from typing import List
+from py_ts_interfaces import Interface
 
 from .Glyph import Glyph
 
 
-class CharacterMap:
-    def __init__(self):
-        self._glyphs = []
+@dataclass
+class CharacterMap(Interface):
 
-    @property
-    def glyphs(self) -> List[Glyph]:
-        return self._glyphs
-
-    @glyphs.setter
-    def glyphs(self, value: List[Glyph]):
-        self._glyphs = value
+    glyphs: List[Glyph] = field(default_factory=list)
 
     def to_dict(self):
-        glyphs = [] if self._glyphs is None else [glyph.to_dict() for glyph in self._glyphs]
+        glyphs = [] if self.glyphs is None else [glyph.__dict__ for glyph in self.glyphs]
         return {
             "glyphs": glyphs
         }
