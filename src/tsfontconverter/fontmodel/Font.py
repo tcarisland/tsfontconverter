@@ -3,6 +3,7 @@ from dataclasses import dataclass, field
 from .CharacterMap import CharacterMap
 from .Meta import Meta
 
+
 @dataclass
 class Font():
     meta: Meta = field(default_factory=Meta)

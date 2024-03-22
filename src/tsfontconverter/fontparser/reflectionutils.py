@@ -21,6 +21,7 @@ class NoQuoteEncoder(json.JSONEncoder):
         else:
             return o
 
+
 def getClassDefinition(clazz):
     fontClassDefinition = inspect.signature(clazz.__init__)
     fontDict = {}
@@ -36,6 +37,6 @@ def getClassDefinition(clazz):
                 fontDict[param_name] = str(tstype)
     return f"export interface {clazz.__name__} {json.dumps(fontDict, indent=2).replace("\"", "")}"
 
+
 def getAllDefinitions():
     return [getClassDefinition(cls) for cls in [Glyph, CharacterMap, Meta, Font]]
-
