@@ -9,20 +9,11 @@ from ..typescript.pytsconverter import convert_subscript_type
 from ..typescript.pytsconverter import convert_regular_type
 
 
-class NoQuoteEncoder(json.JSONEncoder):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-    def encode(self, o):
-        if isinstance(o, (dict, list, tuple)):
-            return super().encode(o)
-        elif isinstance(o, (int, float)):
-            return str(o)
-        else:
-            return o
+def get_typescript_definitions():
+    return get_all_definitions()
 
 
-def getClassDefinition(clazz):
+def get_class_definition(clazz):
     fontClassDefinition = inspect.signature(clazz.__init__)
     fontDict = {}
     for param_name, param in fontClassDefinition.parameters.items():
@@ -38,5 +29,8 @@ def getClassDefinition(clazz):
     return f"export interface {clazz.__name__} {json.dumps(fontDict, indent=2).replace("\"", "")}"
 
 
-def getAllDefinitions():
-    return [getClassDefinition(cls) for cls in [Glyph, CharacterMap, Meta, Font]]
+def get_all_definitions():
+    tsdefinitions = {}
+    for cls in [Glyph, CharacterMap, Meta, Font]:
+        tsdefinitions[cls.__name__] = get_class_definition(cls)
+    return tsdefinitions

@@ -1,11 +1,8 @@
 from .fontparser.fontparser import FontParser
 
-
-def main(fontdirpath, outputpath):
+def main():
     """Entry point for the application script"""
     print("TSFontConverter entrypoint main")
-    if fontdirpath and outputpath:
-        create_font_list(fontdirpath, outputpath)
 
 
 def convert_font(font):
@@ -13,8 +10,8 @@ def convert_font(font):
     print("converting font: {font}".format(font=str(font)))
 
 
-def create_font_list(fontdirpath, outputpath):
-    fontparser = FontParser(fontdirpath=fontdirpath, outputpath=outputpath)
-    fontparser.list_font_files()
+def create_font_list(fontdirpath):
+    fontparser = FontParser(fontdirpath=fontdirpath)
+    return fontparser.list_font_files()
 
 

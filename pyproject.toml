@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "tsfontconverter"
-version = "0.26"
+version = "0.27"
 dependencies = [
     "fonttools",
     "pytest",

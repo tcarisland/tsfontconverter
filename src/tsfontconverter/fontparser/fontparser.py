@@ -70,20 +70,16 @@ def read_font_file(file_path):
     return font
 
 
+def create_base64_encoded_data_uri(fontpath):
+    with open(fontpath, "rb") as image_file:
+        return f"data:font/opentype;base64,{base64.b64encode(image_file.read()).decode("utf-8")}"
+
+
 class FontParser:
 
-    def __init__(self, outputpath, fontdirpath):
-        print(f"FontParser initialized {outputpath} {fontdirpath}")
-        self._outputpath = outputpath
+    def __init__(self, fontdirpath):
+        print(f"FontParser initialized {fontdirpath}")
         self._fontdirpath = fontdirpath
-
-    @property
-    def outputpath(self):
-        return self._outputpath
-
-    @outputpath.setter
-    def outputpath(self, outputpath):
-        self._outputpath = outputpath
 
     @property
     def fontdirpath(self):
@@ -92,10 +88,6 @@ class FontParser:
     @fontdirpath.setter
     def fontdirpath(self, fontdirpath):
         self._fontdirpath = fontdirpath
-
-    def create_base64_encoded_data_uri(self, fontpath):
-        with open(fontpath, "rb") as image_file:
-            return f"data:font/opentype;base64,{base64.b64encode(image_file.read()).decode("utf-8")}"
 
     def list_font_files(self):
         myList = os.listdir(self._fontdirpath)
@@ -106,9 +98,7 @@ class FontParser:
                 font = TTFont(fontpath)
                 glyphs_unicode = extract_glyphs_and_unicode(font)
                 fontinfo = create_font_info(glyphs_unicode, fontname, extract_metadata(font))
-                fontinfo.dataUri = self.create_base64_encoded_data_uri(fontpath)
+                fontinfo.dataUri = create_base64_encoded_data_uri(fontpath)
                 fontinfolist.append(fontinfo)
         font_info_dicts = [font_info.to_dict() for font_info in fontinfolist]
-        with open(self._outputpath, "w") as json_file:
-            json_data = json.dumps(font_info_dicts, indent=1)
-            json_file.write(json_data)
+        return json.dumps(font_info_dicts)

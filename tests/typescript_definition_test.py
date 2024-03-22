@@ -3,7 +3,7 @@ from src.tsfontconverter.fontmodel.Font import Font
 from src.tsfontconverter.fontmodel.Glyph import Glyph
 from src.tsfontconverter.fontmodel.Meta import Meta
 from src.tsfontconverter.typescript.pytsconverter import convert_subscript_type
-from src.tsfontconverter.fontparser.reflectionutils import getClassDefinition
+from src.tsfontconverter.fontparser.reflectionutils import get_class_definition
 
 font_definition = '''export interface Font {
   meta: Meta,
@@ -43,24 +43,24 @@ def test_all():
 
 
 def test_font_definition():
-    tsfc_font_definition = getClassDefinition(Font)
+    tsfc_font_definition = get_class_definition(Font)
     print(tsfc_font_definition)
     assert tsfc_font_definition == font_definition
 
 
 def test_character_map_definition():
-    tsfc_character_map_definition = getClassDefinition(CharacterMap)
+    tsfc_character_map_definition = get_class_definition(CharacterMap)
     print(tsfc_character_map_definition)
     assert tsfc_character_map_definition == character_map_definition
 
 
 def test_glyph_definition():
-    tsfc_glyph_map_definition = getClassDefinition(Glyph)
+    tsfc_glyph_map_definition = get_class_definition(Glyph)
     print(tsfc_glyph_map_definition)
     assert tsfc_glyph_map_definition == glyph_definition
 
 
 def test_meta_definition():
-    tsfc_meta_map_definition = getClassDefinition(Meta)
+    tsfc_meta_map_definition = get_class_definition(Meta)
     print(tsfc_meta_map_definition)
     assert tsfc_meta_map_definition == meta_definition

@@ -9,7 +9,7 @@ This library:
  - Encodes the font file as a base64-encoded DataURI
  - Saves all this in Python objects
  - Serializes the Python Objects in a JSON file
- - ~~Exports TypeScript definitions of the objects~~ (will be implemented in #9)
+ - Exports TypeScript definitions of the objects
 
 ## But Why?
 
