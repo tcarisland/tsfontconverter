@@ -24,6 +24,7 @@ def create_font_info(glyphs_unicode, fontname, font_metadata):
         glyph.glyphId = glyphId
         glyph.unicode = characterMap[glyphId]
         font.characterMap.glyphs.append(glyph)
+    font.characterMap.numberOfGlyphs = len(font.characterMap.glyphs)
     return font
 
 

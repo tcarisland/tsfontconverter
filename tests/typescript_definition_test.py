@@ -12,7 +12,8 @@ font_definition = '''export interface Font {
   dataUri: string
 }'''
 character_map_definition = '''export interface CharacterMap {
-  glyphs: Glyph[]
+  glyphs: Glyph[],
+  numberOfGlyphs: number
 }'''
 glyph_definition = '''export interface Glyph {
   glyphId: number,
