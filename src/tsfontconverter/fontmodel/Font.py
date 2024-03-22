@@ -9,6 +9,7 @@ class Font():
     meta: Meta = field(default_factory=Meta)
     name: str = ""
     characterMap: CharacterMap = field(default_factory=CharacterMap)
+    type: str = ""
     dataUri: str = ""
 
     def to_dict(self):
@@ -18,5 +19,6 @@ class Font():
             "meta": meta,
             "name": self.name,
             "characterMap": characterMap,
+            "type": self.type,
             "dataUri": self.dataUri,
         }

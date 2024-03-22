@@ -99,6 +99,7 @@ class FontParser:
                 glyphs_unicode = extract_glyphs_and_unicode(font)
                 fontinfo = create_font_info(glyphs_unicode, fontname, extract_metadata(font))
                 fontinfo.dataUri = create_base64_encoded_data_uri(fontpath)
+                fontinfo.type = os.path.splitext(fontpath)[-1]
                 fontinfolist.append(fontinfo)
         font_info_dicts = [font_info.to_dict() for font_info in fontinfolist]
-        return json.dumps(font_info_dicts)
+        return json.dumps(font_info_dicts, indent=2)

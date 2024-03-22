@@ -9,6 +9,7 @@ font_definition = '''export interface Font {
   meta: Meta,
   name: string,
   characterMap: CharacterMap,
+  type: string,
   dataUri: string
 }'''
 character_map_definition = '''export interface CharacterMap {
