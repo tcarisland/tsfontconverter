@@ -1,13 +1,10 @@
 from dataclasses import dataclass, field
 
 from .CharacterMap import CharacterMap
-from .Glyph import Glyph
 from .Meta import Meta
-from py_ts_interfaces import Interface
-
 
 @dataclass
-class Font(Interface):
+class Font():
     meta: Meta = field(default_factory=Meta)
     name: str = ""
     characterMap: CharacterMap = field(default_factory=CharacterMap)

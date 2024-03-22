@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "tsfontconverter"
-version = "0.24"
+version = "0.25"
 dependencies = [
     "fonttools",
     "pytest",
@@ -24,8 +24,3 @@ classifiers = [
 
 [project.scripts]
 tsfontconverter = "tsfontconverter:main"
-
-#[tool.hatch.build.targets.sdist]
-#include = [
-#    "/src",
-#]

@@ -13,8 +13,7 @@ from ..fontmodel.Meta import Meta
 class FontParser:
 
     def __init__(self, outputpath, fontdirpath):
-        print(
-            "FontParser initialized {outputpath} {fontdirpath}".format(outputpath=outputpath, fontdirpath=fontdirpath))
+        print(f"FontParser initialized {outputpath} {fontdirpath}")
         self._outputpath = outputpath
         self._fontdirpath = fontdirpath
 

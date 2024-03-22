@@ -1,12 +1,11 @@
 from dataclasses import dataclass, field
 from typing import List
-from py_ts_interfaces import Interface
 
 from .Glyph import Glyph
 
 
 @dataclass
-class CharacterMap(Interface):
+class CharacterMap():
 
     glyphs: List[Glyph] = field(default_factory=list)
 

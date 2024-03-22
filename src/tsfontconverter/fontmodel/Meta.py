@@ -1,9 +1,8 @@
 from dataclasses import dataclass
-from py_ts_interfaces import Interface
 
 
 @dataclass
-class Meta(Interface):
+class Meta():
 
     designerUrl: str = ""
     licenseUrl: str = ""

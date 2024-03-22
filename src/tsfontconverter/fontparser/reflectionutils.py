@@ -1,19 +1,12 @@
 import inspect
 import json
-from typing import List
+from ..fontmodel.CharacterMap import CharacterMap
+from ..fontmodel.Font import Font
+from ..fontmodel.Glyph import Glyph
+from ..fontmodel.Meta import Meta
 
-#from ..fontmodel.CharacterMap import CharacterMap
-#rom ..fontmodel.Font import Font
-from src.tsfontconverter.fontmodel.CharacterMap import CharacterMap
-from src.tsfontconverter.fontmodel.Font import Font
-from src.tsfontconverter.fontmodel.Glyph import Glyph
-from src.tsfontconverter.fontmodel.Meta import Meta
-
-from src.tsfontconverter.typescript.pytsconverter import convert_subscript_type
-from src.tsfontconverter.typescript.pytsconverter import convert_regular_type
-
-#from ..fontmodel.Glyph import Glyph
-#from ..fontmodel.Meta import Meta
+from ..typescript.pytsconverter import convert_subscript_type
+from ..typescript.pytsconverter import convert_regular_type
 
 
 class NoQuoteEncoder(json.JSONEncoder):
@@ -33,7 +26,6 @@ def getClassDefinition(clazz):
     fontDict = {}
     for param_name, param in fontClassDefinition.parameters.items():
         if param_name is not "self":
-            #fontDict[param_name] = param.annotation.__name__
             param_type = param.annotation
             if hasattr(param_type, "__origin__") and param_type.__origin__ == list:
                 list_item_type = param_type.__args__[0].__name__
