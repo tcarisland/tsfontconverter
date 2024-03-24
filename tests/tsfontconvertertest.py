@@ -10,7 +10,7 @@ FONTDIRPATH = os.getenv("FONTDIRPATH")
 FONT_LIST_PATH = os.getenv("FONT_LIST_PATH")
 TYPEDEF_PATH = os.getenv("TYPEDEF_PATH")
 
-FONT_LIST_DATA_START = '''import { Font } from "./font";
+FONT_LIST_DATA_START = '''import { Font, FontStandard } from "./font";
 
 const fonts: Font[] = '''
 
