@@ -7,15 +7,15 @@ from src.tsfontconverter.typescript.pytsconverter import convert_subscript_type
 from src.tsfontconverter.fontparser.reflectionutils import get_class_definition
 
 font_definition = '''export interface Font {
-  meta: Meta,
   name: string,
+  meta: Meta,
   characterMap: CharacterMap,
   type: FontStandard,
   dataUri: string
 }'''
 character_map_definition = '''export interface CharacterMap {
-  glyphs: Glyph[],
-  numberOfGlyphs: number
+  numberOfGlyphs: number,
+  glyphs: Glyph[]
 }'''
 glyph_definition = '''export interface Glyph {
   glyphId: number,
@@ -47,6 +47,7 @@ def test_all():
     test_glyph_definition()
     test_character_map_definition()
     test_fontstandard_enum()
+
 
 def test_fontstandard_enum():
     tsfc_fontstandard_enum_definition = get_class_definition(FontStandard)
