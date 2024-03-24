@@ -1,7 +1,10 @@
 import inspect
 import json
+from enum import Enum
+
 from ..fontmodel.CharacterMap import CharacterMap
 from ..fontmodel.Font import Font
+from ..fontmodel.FontStandard import FontStandard
 from ..fontmodel.Glyph import Glyph
 from ..fontmodel.Meta import Meta
 
@@ -13,9 +16,25 @@ def get_typescript_definitions():
     return get_all_definitions()
 
 
+def is_enum(cls):
+    return inspect.isclass(cls) and issubclass(cls, Enum)
+
+
 def get_class_definition(clazz):
     fontClassDefinition = inspect.signature(clazz.__init__)
     fontDict = {}
+
+    if is_enum(clazz):
+        print(f"{clazz.__name__} is an enum")
+        enum_str = f"export enum {clazz.__name__} {{\n"
+        for index, member in enumerate(clazz):
+            if index < len(clazz) - 1:
+                enum_str += f"  {member.name},\n"
+            else:
+                enum_str += f"  {member.name}\n"
+        enum_str += "}"
+        return enum_str
+
     for param_name, param in fontClassDefinition.parameters.items():
         if param_name is not "self":
             param_type = param.annotation
@@ -31,6 +50,6 @@ def get_class_definition(clazz):
 
 def get_all_definitions():
     tsdefinitions = {}
-    for cls in [Glyph, CharacterMap, Meta, Font]:
+    for cls in [FontStandard, Glyph, CharacterMap, Meta, Font]:
         tsdefinitions[cls.__name__] = get_class_definition(cls)
     return tsdefinitions

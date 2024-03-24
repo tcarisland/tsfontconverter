@@ -1,11 +1,13 @@
 import os
 import json
 import base64
+import re
 
 from fontTools.ttLib import TTFont
 
 from ..fontmodel.CharacterMap import CharacterMap
 from ..fontmodel.Font import Font
+from ..fontmodel.FontStandard import toFontStandard
 
 from ..fontmodel.Glyph import Glyph
 from ..fontmodel.Meta import Meta
@@ -95,11 +97,15 @@ class FontParser:
         for fontname in myList:
             fontpath = self._fontdirpath + "/" + fontname
             if fontpath.endswith(".ttf") or fontpath.endswith(".otf"):
+                fontStandard = toFontStandard(os.path.splitext(fontpath)[-1])
                 font = TTFont(fontpath)
                 glyphs_unicode = extract_glyphs_and_unicode(font)
                 fontinfo = create_font_info(glyphs_unicode, fontname, extract_metadata(font))
                 fontinfo.dataUri = create_base64_encoded_data_uri(fontpath)
-                fontinfo.type = os.path.splitext(fontpath)[-1]
+                fontinfo.type = fontStandard
                 fontinfolist.append(fontinfo)
         font_info_dicts = [font_info.to_dict() for font_info in fontinfolist]
-        return json.dumps(font_info_dicts, indent=2)
+        json_str = json.dumps(font_info_dicts, indent=2)
+        json_str = re.sub(r'"(FontStandard\.(OpenType|TrueType))"', r'\1', json_str)
+        json_str = re.sub(r'\"(.*?)\":', r'\1:', json_str)
+        return json_str

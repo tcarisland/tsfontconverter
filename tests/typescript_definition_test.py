@@ -1,5 +1,6 @@
 from src.tsfontconverter.fontmodel.CharacterMap import CharacterMap
 from src.tsfontconverter.fontmodel.Font import Font
+from src.tsfontconverter.fontmodel.FontStandard import FontStandard
 from src.tsfontconverter.fontmodel.Glyph import Glyph
 from src.tsfontconverter.fontmodel.Meta import Meta
 from src.tsfontconverter.typescript.pytsconverter import convert_subscript_type
@@ -27,6 +28,11 @@ meta_definition = '''export interface Meta {
   description: string,
   sampleText: string
 }'''
+fontstandard_enum_definition = '''export enum FontStandard {
+  OpenType,
+  TrueType
+}
+'''
 
 
 def testPytsconverter():
@@ -41,6 +47,12 @@ def test_all():
     test_meta_definition()
     test_glyph_definition()
     test_character_map_definition()
+    test_fontstandard_enum()
+
+def test_fontstandard_enum():
+    tsfc_fontstandard_enum_definition = get_class_definition(FontStandard)
+    print(tsfc_fontstandard_enum_definition)
+    assert tsfc_fontstandard_enum_definition == fontstandard_enum_definition
 
 
 def test_font_definition():
