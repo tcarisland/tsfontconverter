@@ -10,7 +10,7 @@ font_definition = '''export interface Font {
   meta: Meta,
   name: string,
   characterMap: CharacterMap,
-  type: string,
+  type: FontStandard,
   dataUri: string
 }'''
 character_map_definition = '''export interface CharacterMap {
@@ -31,8 +31,7 @@ meta_definition = '''export interface Meta {
 fontstandard_enum_definition = '''export enum FontStandard {
   OpenType,
   TrueType
-}
-'''
+}'''
 
 
 def testPytsconverter():
