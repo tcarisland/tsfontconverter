@@ -18,7 +18,7 @@ character_map_definition = '''export interface CharacterMap {
   glyphs: Glyph[]
 }'''
 glyph_definition = '''export interface Glyph {
-  glyphId: number,
+  glyphId: string,
   unicode: string
 }'''
 meta_definition = '''export interface Meta {

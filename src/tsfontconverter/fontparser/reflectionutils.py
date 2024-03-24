@@ -25,7 +25,6 @@ def get_class_definition(clazz):
     fontDict = {}
 
     if is_enum(clazz):
-        print(f"{clazz.__name__} is an enum")
         enum_str = f"export enum {clazz.__name__} {{\n"
         for index, member in enumerate(clazz):
             if index < len(clazz) - 1:

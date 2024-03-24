@@ -6,7 +6,7 @@ from .Meta import Meta
 
 
 @dataclass
-class Font():
+class Font:
     name: str = ""
     meta: Meta = field(default_factory=Meta)
     characterMap: CharacterMap = field(default_factory=CharacterMap)

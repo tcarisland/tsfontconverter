@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class Meta():
+class Meta:
 
     designerUrl: str = ""
     licenseUrl: str = ""

@@ -5,7 +5,7 @@ from .Glyph import Glyph
 
 
 @dataclass
-class CharacterMap():
+class CharacterMap:
     # Only used for introspection
     numberOfGlyphs: int = 0
 
