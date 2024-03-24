@@ -100,7 +100,7 @@ class FontParser:
                 fontStandard = toFontStandard(os.path.splitext(fontpath)[-1])
                 font = TTFont(fontpath)
                 glyphs_unicode = extract_glyphs_and_unicode(font)
-                fontinfo = create_font_info(glyphs_unicode, fontname, extract_metadata(font))
+                fontinfo = create_font_info(glyphs_unicode, os.path.splitext(fontname)[0], extract_metadata(font))
                 fontinfo.dataUri = create_base64_encoded_data_uri(fontpath)
                 fontinfo.type = fontStandard
                 fontinfolist.append(fontinfo)
@@ -108,4 +108,4 @@ class FontParser:
         json_str = json.dumps(font_info_dicts, indent=2)
         json_str = re.sub(r'"(FontStandard\.(OpenType|TrueType))"', r'\1', json_str)
         json_str = re.sub(r'\"(.*?)\":', r'\1:', json_str)
-        return json_str
+        return f"{json_str}\n\nexport default fonts;"
