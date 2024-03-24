@@ -57,12 +57,12 @@ def extract_glyphs_and_unicode(font):
     if is_truetype:
         cmap = font['cmap'].getBestCmap()
         for glyph_id, unicode_char in cmap.items():
-            glyph_list.append((unicode_char, hex(glyph_id)))
+            glyph_list.append((unicode_char, int(glyph_id)))
 
     elif is_cff:
         for table in font['cmap'].tables:
             for code, name in table.cmap.items():
-                glyph_list.append((name, hex(code)))
+                glyph_list.append((name, int(code)))
     return list(filter(lambda item: item is not None, glyph_list))
 
 

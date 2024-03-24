@@ -4,4 +4,4 @@ from dataclasses import dataclass
 @dataclass
 class Glyph:
     glyphId: str = ""
-    unicode: str = ""
+    unicode: int = -1
